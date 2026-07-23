@@ -61,91 +61,25 @@
         </nav>
         <p class="eyebrow">Contact</p>
         <h1>Let's plan your family's simcha</h1>
-        <p class="lede">Call, text, or send a message &mdash; whatever's easiest. If your baby has arrived, <strong>mazel tov!</strong> Don't wait to get in touch.</p>
+        <p class="lede">Call or text anytime &mdash; whatever's easiest. If your baby has arrived, <strong>mazel tov!</strong> Don't wait to get in touch.</p>
       </div>
     </section>
 
     <!-- ============ Contact ============ -->
     <section class="section">
-      <div class="container grid-2 contact-wrap">
-        <div>
-          <h2>Reach out directly</h2>
-          <p>I personally respond to every message, usually the same day. For urgent timing, please call or text.</p>
-
-          <ul class="contact-list">
-            <li>
-              <span class="contact-label">Call</span>
-              <!-- PLACEHOLDER: real phone number (update the tel: link too) -->
-              <a href="tel:+12165059138">(216) 505-9138</a>
-            </li>
-            <li>
-              <span class="contact-label">Text</span>
-              <a href="sms:+12165059138">Send a text to (216) 505-9138</a>
-            </li>
-            <li>
-              <span class="contact-label">Email</span>
-              <!-- PLACEHOLDER: real email -->
-              <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
-            </li>
-            <li>
-              <span class="contact-label">Service Area</span>
-              <span class="val">Greater Cleveland &amp; Northeast Ohio</span>
-            </li>
-            <li>
-              <span class="contact-label">Availability</span>
-              <span class="val">Seven days a week, including holidays</span>
-            </li>
-          </ul>
-
-          <p style="margin-top:1.4rem; color:var(--ink-soft);">
-            Not sure if I serve your town? See <a href="/service-areas/">all service areas</a> &mdash;
-            and I'm glad to travel across Northeast Ohio on request.
+      <div class="container narrow" style="text-align:center;">
+        <div class="call-card">
+          <p class="eyebrow">Call or Text Anytime</p>
+          <a class="call-number" href="tel:+12165059138">(216) 505-9138</a>
+          <div class="hero-actions" style="justify-content:center; margin:0;">
+            <a href="tel:+12165059138" class="btn btn-primary">Call</a>
+            <a href="sms:+12165059138" class="btn btn-gold">Text</a>
+          </div>
+          <p class="call-sub">
+            Reach out anytime &mdash; if your baby has arrived, please don't wait to get in touch.
+            I serve Greater Cleveland &amp; Northeast Ohio, seven days a week including holidays,
+            and I'm glad to travel across the area on request.
           </p>
-        </div>
-
-        <div class="contact-card">
-          <h2>Send a message</h2>
-          <!--
-            ============================================================
-            CONTACT FORM — no backend required yet.
-            This is wired for Formspree (free). To turn it on:
-              1. Sign up at https://formspree.io and create a form.
-              2. Copy the form's endpoint (looks like
-                 https://formspree.io/f/abcdwxyz).
-              3. Replace YOUR_FORM_ID below with your id.
-            The form then emails you each submission. No server needed.
-            (Netlify Forms, Getform, or Basin work the same way — just
-            swap the action attribute. See the README.)
-            ============================================================
-          -->
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" required autocomplete="name" />
-            </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required autocomplete="email" />
-              </div>
-            </div>
-            <div class="field">
-              <label for="date">Baby's due date or bris date (if known)</label>
-              <input type="date" id="date" name="due_or_bris_date" />
-            </div>
-            <div class="field">
-              <label for="message">How can I help?</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell me a little about your family and what you're planning…"></textarea>
-            </div>
-            <!-- Honeypot field to reduce spam (hidden from real users) -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true" />
-            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            <p class="form-note">I typically respond the same day. For urgent timing, please call or text.</p>
-          </form>
         </div>
       </div>
     </section>
@@ -178,8 +112,7 @@
           <ul>
             <li><a href="tel:+12165059138">(216) 505-9138</a></li>
             <li><a href="sms:+12165059138">Text me</a></li>
-            <li><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
-            <li><a href="/contact/">Contact form</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
       </div>

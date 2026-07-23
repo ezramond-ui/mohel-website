@@ -403,6 +403,21 @@ textarea:focus-visible, summary:focus-visible {
 .area-card p { margin: 0 0 .6rem; color: var(--ink-soft); font-size: .9rem; }
 .area-card .more { color: var(--gold-lit); font-weight: 600; font-size: .84rem; letter-spacing: .02em; }
 
+/* ===== Contact — phone-first call card ===== */
+.call-card {
+  background: var(--navy-850); border: 1px solid var(--line);
+  border-top: 2px solid var(--gold-deep); border-radius: 0 0 12px 12px;
+  padding: clamp(2.2rem, 5vw, 3.6rem) 1.5rem;
+}
+.call-card .eyebrow { justify-content: center; }
+.call-number {
+  display: inline-block; font-family: var(--display); font-weight: 500;
+  font-size: clamp(2.3rem, 7vw, 3.6rem); color: var(--gold-lit);
+  letter-spacing: .01em; margin: .3rem 0 1.6rem; text-decoration: none;
+}
+.call-number:hover { color: var(--gold); }
+.call-sub { color: var(--ink-soft); max-width: 48ch; margin: 1.7rem auto 0; }
+
 /* ===== Contact ===== */
 .contact-wrap { align-items: start; }
 .contact-list { list-style: none; padding: 0; margin: 1.6rem 0 0; border-top: 1px solid var(--line); }
