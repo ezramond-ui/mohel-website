@@ -33,6 +33,21 @@
   var yearEl = document.getElementById("year");
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
+  /* ---- Scroll-reveal (progressive enhancement) ----
+     Sections gently fade/rise into view. Content stays fully visible
+     with no JS, and motion is skipped for prefers-reduced-motion. */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var targets = document.querySelectorAll(".section, .page-hero");
+  if (!reduce && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("has-js");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+  }
+
   /* ---- Gallery lightbox ---- */
   var gallery = document.querySelector(".gallery");
   if (gallery) {
