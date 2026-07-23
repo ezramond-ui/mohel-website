@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PLACEHOLDER: replace www.yourdomain.com with your real domain throughout. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.yourdomain.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.yourdomain.com/the-bris-process/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.yourdomain.com/about/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/beachwood/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/cleveland-heights/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/university-heights/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/south-euclid/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/shaker-heights/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/solon/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/pepper-pike/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/lyndhurst/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/mayfield-heights/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/service-areas/orange/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/gallery/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.yourdomain.com/faq/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.yourdomain.com/contact/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
