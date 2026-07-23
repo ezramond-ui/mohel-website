@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# PLACEHOLDER: update to your real domain before launch
-Sitemap: https://www.yourdomain.com/sitemap.xml
+Sitemap: https://cleveland-mohel.com/sitemap.xml
