@@ -141,7 +141,7 @@ textarea:focus-visible, summary:focus-visible {
 
 .brand { display: flex; align-items: center; gap: .75rem; color: inherit; text-decoration: none; }
 /* Logo image (drop your file at /assets/logo.png) */
-.brand-logo { height: 48px; width: auto; display: block; }
+.brand-logo { height: 56px; width: auto; max-width: 260px; display: block; }
 .brand-mark {
   color: var(--gold-deep); font-size: 1.45rem; line-height: 1;
 }
@@ -573,7 +573,7 @@ main { overflow-x: hidden; }
 
   .header-phone { display: inline-flex; }
   .nav-toggle { display: flex; }
-  .brand-logo { height: 42px; }
+  .brand-logo { height: 46px; }
   .site-nav {
     position: absolute; top: 79px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
