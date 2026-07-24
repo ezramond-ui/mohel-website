@@ -134,7 +134,7 @@ textarea:focus-visible, summary:focus-visible {
 }
 .site-header::after {
   content: ""; display: block; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--teal), var(--plum), transparent);
+  background: linear-gradient(90deg, transparent, var(--cobalt), var(--teal), transparent);
   opacity: .55;
 }
 .nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 1rem; }
@@ -188,8 +188,8 @@ textarea:focus-visible, summary:focus-visible {
 .hero::before {
   content: ""; position: absolute; inset: -20%; z-index: 0; pointer-events: none;
   background: linear-gradient(115deg,
-    #0a0e27 0%, #16276b 22%, var(--teal-deep) 42%, #0a0e27 58%,
-    #7a4bd0 74%, var(--gold-deep) 88%, #0a0e27 100%);
+    #0a0e27 0%, #143070 18%, #0f5f86 34%, #1a9b8f 48%,
+    #12805f 62%, #12467e 78%, #0a0e27 100%);
   background-size: 280% 280%;
   filter: blur(8px) saturate(115%);
   opacity: .55;
@@ -235,7 +235,7 @@ textarea:focus-visible, summary:focus-visible {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
     radial-gradient(55% 90% at 90% -20%, rgba(52,214,198,.14), transparent 60%),
-    radial-gradient(50% 90% at 0% 120%, rgba(208,106,160,.10), transparent 60%);
+    radial-gradient(50% 90% at 0% 120%, rgba(30,86,160,.14), transparent 60%);
 }
 .page-hero .container { position: relative; }
 .page-hero p.lede { margin-bottom: 0; }
@@ -256,7 +256,7 @@ textarea:focus-visible, summary:focus-visible {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
   background:
     radial-gradient(40% 70% at 100% 0%, rgba(91,124,250,.08), transparent 60%),
-    radial-gradient(40% 70% at 0% 100%, rgba(230,182,78,.06), transparent 60%);
+    radial-gradient(40% 70% at 0% 100%, rgba(52,214,198,.07), transparent 60%);
 }
 .section-alt > .container { position: relative; }
 /* ===== Light sections — inverted palette: cream / stark white ground,
@@ -506,7 +506,7 @@ textarea:focus-visible, summary:focus-visible {
 .cta-band { position: relative; overflow: hidden; text-align: center; border-top: 1px solid var(--line-gold); border-bottom: 1px solid var(--line-gold); background: var(--bg-2); }
 .cta-band::before {
   content: ""; position: absolute; inset: -20%; pointer-events: none;
-  background: linear-gradient(115deg, #0d1330 0%, #16276b 30%, var(--teal-deep) 50%, #7a4bd0 70%, var(--gold-deep) 88%, #0d1330 100%);
+  background: linear-gradient(115deg, #0d1330 0%, #143070 24%, #0f5f86 42%, #1a9b8f 58%, #12805f 74%, #12467e 88%, #0d1330 100%);
   background-size: 260% 260%; filter: blur(10px); opacity: .4; animation: aurora 26s ease-in-out infinite;
 }
 .cta-band::after {
