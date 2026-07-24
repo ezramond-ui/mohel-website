@@ -33,19 +33,57 @@
   var yearEl = document.getElementById("year");
   if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-  /* ---- Scroll-reveal (progressive enhancement) ----
-     Sections gently fade/rise into view. Content stays fully visible
-     with no JS, and motion is skipped for prefers-reduced-motion. */
+  /* ---- Scroll & load motion (progressive enhancement) ----
+     Headings, images, features and cards ease into place as you scroll.
+     Cards within the same grid stagger for a lively, hand-built feel.
+     Content stays fully visible with no JS or with reduced-motion. */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var targets = document.querySelectorAll(".section, .page-hero");
+
   if (!reduce && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("has-js");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
-    targets.forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+    }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
+
+    // [selector, animation, stagger-ms between siblings]
+    var plan = [
+      [".hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions, .hero .hero-trust", "up", 110],
+      [".page-hero .eyebrow, .page-hero h1, .page-hero .lede", "up", 90],
+      [".section-head", "up", 0],
+      [".prose > h2", "up", 0],
+      [".photo-placeholder", "scale", 0],
+      [".feature", "pop", 0],
+      [".compare-col", "up", 120],
+      [".quicklink", "up", 70],
+      [".step", "up", 70],
+      [".area-card", "up", 50],
+      [".value", "up", 70],
+      [".quote", "up", 80],
+      [".gallery-item", "scale", 45],
+      [".faq details", "up", 40],
+      [".cta-band .eyebrow, .cta-band h2, .cta-band .cta-phone", "up", 90]
+    ];
+
+    plan.forEach(function (cfg) {
+      var nodes = document.querySelectorAll(cfg[0]);
+      var anim = cfg[1], stagger = cfg[2] || 0;
+      var counts = [];   // parallel arrays keep this dependency-free
+      var parents = [];
+      Array.prototype.forEach.call(nodes, function (el) {
+        if (el.hasAttribute("data-anim")) { return; }   // never double-tag
+        el.setAttribute("data-anim", anim);
+        if (stagger) {
+          var p = el.parentElement;
+          var idx = parents.indexOf(p);
+          if (idx === -1) { parents.push(p); counts.push(0); idx = parents.length - 1; }
+          var d = Math.min(counts[idx] * stagger, 420);
+          counts[idx]++;
+          if (d) { el.style.setProperty("--d", d + "ms"); }
+        }
+        io.observe(el);
+      });
+    });
   }
 
   /* ---- Gallery lightbox ---- */
