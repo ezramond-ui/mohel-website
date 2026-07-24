@@ -602,11 +602,12 @@ main { overflow-x: hidden; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
 
+  .nav-wrap { min-height: 68px; }
   .header-phone { order: 1; margin-left: 0; }
   .nav-toggle { display: flex; order: 2; }
-  .brand-logo { height: 56px; }
+  .brand-logo { height: 44px; }
   .site-nav {
-    position: absolute; top: 92px; left: 0; right: 0;
+    position: absolute; top: 68px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: #ffffff; border-bottom: 1px solid rgba(20,32,74,.12);
     box-shadow: 0 18px 40px rgba(10,14,39,.14);
