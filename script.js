@@ -50,7 +50,7 @@
     // Order matters: earlier entries claim an element first.
     var plan = [
       // The hero sequences upward as the page loads
-      [".hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions, .hero .hero-trust", "up", 110],
+      [".hero .eyebrow, .hero h1, .hero .lede, .hero .hero-phone, .hero .hero-actions, .hero .hero-trust", "up", 110],
       [".page-hero .eyebrow, .page-hero h1, .page-hero .lede", "up", 90],
 
       // Titles and headings glide in from the left

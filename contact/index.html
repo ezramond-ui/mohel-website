@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✡️</text></svg>" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
   <!-- Flags JS support before first paint so scroll animations do not flash -->
   <script>document.documentElement.classList.add("has-js");</script>
 </head>
@@ -30,7 +30,7 @@
       <a href="/" class="brand" aria-label="Home">
         <img class="brand-logo" src="/assets/logo.png" alt="Rabbi Ezra Mond, Certified Expert Mohel" onerror="this.remove()" />
       </a>
-      <a class="header-phone" href="tel:+12165059138">(216) 505-9138</a>
+      <a class="header-phone" href="tel:+12165059138"><span class="hp-label">Call or Text</span><span class="hp-num">(216) 505-9138</span></a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
         <span></span><span></span><span></span>
       </button>
@@ -48,8 +48,8 @@
 
   <main id="main">
 
-    <!-- ============ Page hero ============ -->
-    <section class="page-hero">
+    <!-- ============ Contact — number front and center ============ -->
+    <section class="page-hero contact-top">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <ol>
@@ -57,26 +57,13 @@
             <li>Contact</li>
           </ol>
         </nav>
-        <p class="eyebrow">Contact</p>
-        <h1>Let's plan your family's simcha</h1>
-        <p class="lede">Call or text anytime &mdash; whatever's easiest. If your baby has arrived, <strong>mazel tov!</strong> Don't wait to get in touch.</p>
-      </div>
-    </section>
-
-    <!-- ============ Contact CTA banner ============ -->
-    <section class="section cta-band">
-      <div class="container">
         <p class="eyebrow">Call or Text Anytime</p>
-        <h2>Let's plan your son's bris</h2>
-        <p>
-          If your baby has arrived, mazel tov! Reach out anytime &mdash; I serve Greater Cleveland &amp;
-          Northeast Ohio, seven days a week including holidays.
-        </p>
         <p class="cta-phone"><a href="tel:+12165059138">(216) 505-9138</a></p>
-        <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
-          <a href="tel:+12165059138" class="btn btn-primary">Call</a>
-          <a href="sms:+12165059138" class="btn btn-gold">Text</a>
-        </div>
+        <h1>Let's plan your son's bris</h1>
+        <p class="lede">
+          If your baby has arrived, <strong>mazel tov!</strong> Reach out anytime &mdash; I serve
+          Greater Cleveland &amp; Northeast Ohio, seven days a week including holidays.
+        </p>
       </div>
     </section>
 
@@ -87,7 +74,6 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="brand-mark" aria-hidden="true">✡︎</span>
           <div>
             <p class="footer-name">Rabbi Ezra Mond, Certified Expert Mohel</p>
             <p class="footer-tag">Traditional &amp; gentle bris ceremonies for families across Greater Cleveland &amp; Northeast Ohio.</p>

@@ -137,9 +137,9 @@ textarea:focus-visible, summary:focus-visible {
   background: linear-gradient(90deg, transparent, var(--cobalt), var(--teal), transparent);
   opacity: .8;
 }
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 1rem; }
+.nav-wrap { display: flex; align-items: center; justify-content: flex-start; min-height: 78px; gap: 1.1rem; }
 
-.brand { display: flex; align-items: center; gap: .75rem; color: inherit; text-decoration: none; }
+.brand { display: flex; align-items: center; gap: .75rem; color: inherit; text-decoration: none; margin-right: auto; order: 0; }
 /* Logo image (drop your file at /assets/logo.png) */
 .brand-logo { height: 56px; width: auto; max-width: 260px; display: block; }
 .brand-mark {
@@ -152,7 +152,7 @@ textarea:focus-visible, summary:focus-visible {
   color: var(--gold-deep); margin-top: 1px;
 }
 
-.site-nav { display: flex; align-items: center; gap: 1.7rem; }
+.site-nav { display: flex; align-items: center; gap: 1.7rem; order: 2; }
 .site-nav a { color: #38426a; font-weight: 500; font-size: 0.92rem; text-decoration: none; padding: .2rem 0; position: relative; }
 .site-nav a:hover { color: #14204a; }
 .site-nav a[aria-current="page"] { color: var(--gold-deep); }
@@ -167,11 +167,20 @@ textarea:focus-visible, summary:focus-visible {
 .site-nav .nav-cta:hover { border-color: var(--gold-deep); color: #fff; background: var(--gold-deep); }
 .site-nav .nav-cta[aria-current="page"]::after { display: none; }
 
+/* Always-visible click-to-call in the header corner (no button, just the number) */
 .header-phone {
-  display: none; align-items: center; gap: .4rem;
-  font-weight: 700; color: var(--gold-deep); text-decoration: none; font-size: .92rem;
+  display: inline-flex; flex-direction: column; align-items: flex-end;
+  line-height: 1.12; text-decoration: none; order: 3; margin-left: .4rem;
 }
-.header-phone::before { content: "\260E"; }
+.header-phone .hp-label {
+  font-size: .6rem; text-transform: uppercase; letter-spacing: .15em;
+  color: var(--gold-deep); font-weight: 700;
+}
+.header-phone .hp-num {
+  font-family: var(--display); font-weight: 600; font-size: 1.06rem; color: #14204a;
+  white-space: nowrap;
+}
+.header-phone:hover .hp-num { color: var(--cobalt); }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { width: 24px; height: 2px; background: #14204a; border-radius: 2px; transition: .25s; }
@@ -215,7 +224,29 @@ textarea:focus-visible, summary:focus-visible {
 .hero h1 { text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
 .hero h1 em { font-style: italic; color: var(--gold-lit); font-weight: 500; }
 .lede { font-size: 1.22rem; color: var(--ink-body); max-width: 60ch; line-height: 1.6; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 2.8rem; }
+/* Phone-first hero call to action (no button — the number is the action) */
+.hero-phone {
+  margin: 2rem 0 .3rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .8rem;
+  text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; font-weight: 700; color: var(--ink-soft);
+}
+.hero-phone a {
+  font-family: var(--display); font-weight: 600; letter-spacing: 0; text-transform: none;
+  font-size: clamp(1.9rem, 5.5vw, 2.8rem); color: var(--gold-lit); text-decoration: none;
+}
+.hero-phone a:hover { color: var(--gold); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.4rem 0 2.6rem; }
+
+/* Contact page: number sits at the very top, large and centered */
+.contact-top { text-align: center; }
+.contact-top .breadcrumbs ol { justify-content: center; }
+.contact-top .eyebrow { justify-content: center; }
+.contact-top .cta-phone { margin: .4rem 0 1.4rem; }
+.contact-top .cta-phone a {
+  font-family: var(--display); font-weight: 600; letter-spacing: .01em;
+  font-size: clamp(2.6rem, 9vw, 4.4rem); color: var(--gold-lit); text-decoration: none; line-height: 1.05;
+}
+.contact-top .cta-phone a:hover { color: var(--gold); }
+.contact-top .lede { margin-left: auto; margin-right: auto; }
 
 .hero-trust {
   list-style: none; margin: 0; padding: 1.8rem 0 0;
@@ -571,8 +602,8 @@ main { overflow-x: hidden; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
 
-  .header-phone { display: inline-flex; }
-  .nav-toggle { display: flex; }
+  .header-phone { order: 1; margin-left: 0; }
+  .nav-toggle { display: flex; order: 2; }
   .brand-logo { height: 46px; }
   .site-nav {
     position: absolute; top: 79px; left: 0; right: 0;
