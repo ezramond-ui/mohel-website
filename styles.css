@@ -259,6 +259,65 @@ textarea:focus-visible, summary:focus-visible {
     radial-gradient(40% 70% at 0% 100%, rgba(230,182,78,.06), transparent 60%);
 }
 .section-alt > .container { position: relative; }
+/* ===== Light sections — inverted palette: cream / stark white ground,
+   navy cards and navy "pop-out" features. Tokens are re-scoped so text
+   flips dark, then re-asserted light inside the dark cards. ===== */
+.section.light {
+  background: #f6f1e6;                       /* warm cream */
+  border-top: 1px solid rgba(20,32,74,.10);
+  border-bottom: 1px solid rgba(20,32,74,.10);
+  --ink:      #14204a;
+  --ink-body: #38426a;
+  --ink-soft: #5e6890;
+  --ink-dim:  #9199b7;
+  --line:     rgba(20,32,74,.13);
+  color: var(--ink-body);
+}
+.section.light.stark { background: #ffffff; }  /* stark white variant */
+.section.light::before { display: none !important; }
+
+/* Accents deepen so they stay legible on a light ground */
+.section.light .eyebrow { color: var(--gold-deep); }
+.section.light .eyebrow::before { background: linear-gradient(90deg, var(--gold-deep), var(--teal-deep)); }
+.section.light a { color: var(--teal-deep); }
+.section.light a:hover { color: #0f6b62; }
+.section.light .prose h3 { color: var(--gold-deep); }
+.section.light .prose li::marker { color: var(--teal-deep); }
+.section.light .checklist li::before { color: var(--gold-deep); }
+.section.light .value h3::before,
+.section.light .trust-item .num {
+  background: linear-gradient(120deg, var(--gold-deep), var(--teal-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.section.light .trust-item { border-image: linear-gradient(90deg, var(--gold-deep), var(--teal-deep)) 1; }
+
+/* Soft callouts rather than heavy dark boxes */
+.section.light .callout {
+  background: #fffdf8; border-color: rgba(20,32,74,.12); border-left-color: var(--gold-deep);
+}
+
+/* Navy cards keep light interiors so they pop against the light ground */
+.section.light .step,
+.section.light .quicklink,
+.section.light .area-card,
+.section.light .quote,
+.section.light .compare-col {
+  --ink: #eef1fb; --ink-body: #c6cdea; --ink-soft: #939cc6;
+  --line: rgba(255,255,255,.10);
+  color: var(--ink-body);
+}
+/* Grid seams need to read on a light ground */
+.section.light .steps,
+.section.light .quicklinks,
+.section.light .area-grid,
+.section.light .gallery { background: rgba(20,32,74,.14); border-color: rgba(20,32,74,.14); }
+
+/* The navy feature keeps its own bright accents inside a light section */
+.section.light .feature .eyebrow { color: var(--gold-lit); }
+.section.light .feature .eyebrow::before { background: linear-gradient(90deg, var(--gold), var(--teal)); }
+.section.light .feature a { color: var(--teal-lit); }
+.section.light .feature a:hover { color: var(--teal); }
+
 .section-head { max-width: 760px; margin: 0 0 2.8rem; }
 .section-intro { color: var(--ink-soft); font-size: 1.08rem; }
 
@@ -345,32 +404,35 @@ textarea:focus-visible, summary:focus-visible {
 /* ===== Feature — light geometric "pop-out" card (lifts key ideas off the dark) ===== */
 .feature {
   position: relative; margin: 2.4rem 0;
-  background: linear-gradient(150deg, #f8f3e7 0%, #eee4cf 100%);
-  color: #17204a; border-radius: 16px;
+  background: linear-gradient(150deg, #1a2c66 0%, #0b1230 100%);
+  color: #dbe3f5; border-radius: 16px;
   padding: clamp(1.8rem, 4vw, 2.9rem);
-  box-shadow: 0 26px 60px rgba(0,0,0,.42);
+  box-shadow: 0 26px 60px rgba(8,12,32,.5);
+  border: 1px solid rgba(255,255,255,.09);
   /* notched geometric corners (top-right + bottom-left) */
   clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 26px 100%, 0 calc(100% - 26px));
   overflow: hidden;
 }
 .feature::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .6;
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .7;
   background:
-    repeating-linear-gradient(30deg,  transparent 0 25px, rgba(23,32,74,.045) 25px 26px),
-    repeating-linear-gradient(-30deg, transparent 0 25px, rgba(23,32,74,.045) 25px 26px);
+    repeating-linear-gradient(30deg,  transparent 0 25px, rgba(255,255,255,.05) 25px 26px),
+    repeating-linear-gradient(-30deg, transparent 0 25px, rgba(52,214,198,.06) 25px 26px);
 }
 .feature > * { position: relative; }
 .feature.center { text-align: center; }
 .feature.center .eyebrow { justify-content: center; }
-.feature .eyebrow { color: var(--gold-deep); margin-bottom: .8rem; }
-.feature .eyebrow::before { background: linear-gradient(90deg, var(--gold-deep), var(--teal-deep)); }
+.feature .eyebrow { color: var(--gold-lit); margin-bottom: .8rem; }
+.feature .eyebrow::before { background: linear-gradient(90deg, var(--gold), var(--teal)); }
 .feature-lead {
   font-family: var(--display); font-weight: 600; letter-spacing: -.01em;
-  font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.08; color: #131c45; margin: 0 0 .8rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem); line-height: 1.08; color: #ffffff; margin: 0 0 .8rem;
 }
-.feature-lead em { font-style: italic; color: var(--gold-deep); }
-.feature p:not(.eyebrow) { color: #35406c; margin: 0; }
+.feature-lead em { font-style: italic; color: var(--gold-lit); }
+.feature p:not(.eyebrow) { color: #b7c1e0; margin: 0; }
 .feature p:not(.eyebrow) + p { margin-top: .8rem; }
+.feature a { color: var(--teal-lit); }
+.feature a:hover { color: var(--teal); }
 
 /* ===== Values ===== */
 .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem 2.8rem; }
