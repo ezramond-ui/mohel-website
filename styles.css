@@ -550,6 +550,11 @@ textarea:focus-visible, summary:focus-visible {
   transition-delay: var(--d, 0ms);
   will-change: opacity, transform;
 }
+/* Contain sideways slide-ins so they never create a horizontal scrollbar.
+   Applied to <main> (not <body>) so the sticky header keeps working. */
+main { overflow-x: hidden; }
+@supports (overflow-x: clip) { main { overflow-x: clip; } }
+
 .has-js [data-anim="up"]    { transform: translateY(32px); }
 .has-js [data-anim="left"]  { transform: translateX(-38px); }
 .has-js [data-anim="right"] { transform: translateX(38px); }

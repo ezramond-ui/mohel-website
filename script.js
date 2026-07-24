@@ -46,39 +46,59 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
 
-    // [selector, animation, stagger-ms between siblings]
+    // [selector, animation (a string, or an array to alternate through), stagger-ms]
+    // Order matters: earlier entries claim an element first.
     var plan = [
+      // The hero sequences upward as the page loads
       [".hero .eyebrow, .hero h1, .hero .lede, .hero .hero-actions, .hero .hero-trust", "up", 110],
       [".page-hero .eyebrow, .page-hero h1, .page-hero .lede", "up", 90],
-      [".section-head", "up", 0],
-      [".prose > h2", "up", 0],
-      [".photo-placeholder", "scale", 0],
+
+      // Titles and headings glide in from the left
+      [".section-head", "left", 0],
+      [".prose > h2", "left", 0],
+
+      // Paired columns converge from opposite sides
+      [".grid-2 .about-photo", "left", 0],
+      [".grid-2 .about-photo + div", "right", 0],
+      [".compare-yes", "left", 0],
+      [".compare-no", "right", 0],
+
+      // Feature cards pop forward off the page
       [".feature", "pop", 0],
-      [".compare-col", "up", 120],
-      [".quicklink", "up", 70],
-      [".step", "up", 70],
-      [".area-card", "up", 50],
-      [".value", "up", 70],
-      [".quote", "up", 80],
+
+      // Sequential steps march in from the left
+      [".step", "left", 90],
+
+      // Card grids alternate sides as they stagger
+      [".quicklink", ["left", "right"], 80],
+      [".area-card", ["left", "right"], 60],
+      [".value", ["left", "right"], 80],
+      [".quote", ["left", "right"], 90],
+      [".faq details", ["left", "right"], 45],
+
+      // Gallery photos scale up into place
+      // (portrait photos animate via their .about-photo wrapper above)
       [".gallery-item", "scale", 45],
-      [".faq details", "up", 40],
+
       [".cta-band .eyebrow, .cta-band h2, .cta-band .cta-phone", "up", 90]
     ];
 
     plan.forEach(function (cfg) {
       var nodes = document.querySelectorAll(cfg[0]);
       var anim = cfg[1], stagger = cfg[2] || 0;
-      var counts = [];   // parallel arrays keep this dependency-free
-      var parents = [];
+      var parents = [], counts = [];   // parallel arrays keep this dependency-free
       Array.prototype.forEach.call(nodes, function (el) {
         if (el.hasAttribute("data-anim")) { return; }   // never double-tag
-        el.setAttribute("data-anim", anim);
+
+        // Index within this element's own parent, so each grid restarts
+        var p = el.parentElement;
+        var slot = parents.indexOf(p);
+        if (slot === -1) { parents.push(p); counts.push(0); slot = parents.length - 1; }
+        var i = counts[slot]++;
+
+        el.setAttribute("data-anim", typeof anim === "string" ? anim : anim[i % anim.length]);
         if (stagger) {
-          var p = el.parentElement;
-          var idx = parents.indexOf(p);
-          if (idx === -1) { parents.push(p); counts.push(0); idx = parents.length - 1; }
-          var d = Math.min(counts[idx] * stagger, 420);
-          counts[idx]++;
+          var d = Math.min(i * stagger, 420);
           if (d) { el.style.setProperty("--d", d + "ms"); }
         }
         io.observe(el);
