@@ -602,12 +602,16 @@ main { overflow-x: hidden; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
 
-  .nav-wrap { min-height: 68px; }
-  .header-phone { order: 1; margin-left: 0; }
-  .nav-toggle { display: flex; order: 2; }
-  .brand-logo { height: 44px; }
+  .container { padding: 0 1.1rem; }
+  .nav-wrap { min-height: 66px; gap: .6rem; flex-wrap: nowrap; }
+  .brand { min-width: 0; }
+  .header-phone { order: 1; margin-left: 0; flex: none; }
+  .header-phone .hp-num { font-size: .98rem; }
+  .header-phone .hp-label { font-size: .56rem; }
+  .nav-toggle { display: flex; order: 2; flex: none; padding: 8px 2px; }
+  .brand-logo { height: 40px; max-width: 46vw; }
   .site-nav {
-    position: absolute; top: 68px; left: 0; right: 0;
+    position: absolute; top: 66px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: #ffffff; border-bottom: 1px solid rgba(20,32,74,.12);
     box-shadow: 0 18px 40px rgba(10,14,39,.14);
@@ -625,6 +629,19 @@ main { overflow-x: hidden; }
   .footer-inner { grid-template-columns: 1fr; }
   body { background-attachment: scroll; }
 }
+
+/* Very small phones: shrink the header a touch more so nothing crowds */
+@media (max-width: 380px) {
+  .container { padding: 0 .9rem; }
+  .nav-wrap { gap: .45rem; }
+  .brand-logo { height: 34px; max-width: 44vw; }
+  .header-phone .hp-label { display: none; }
+  .header-phone .hp-num { font-size: .92rem; }
+}
+
+/* Safety net: clip any stray horizontal overflow without breaking the
+   sticky header (overflow:clip does not create a scroll container). */
+@supports (overflow: clip) { body { overflow-x: clip; } }
 
 /* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
